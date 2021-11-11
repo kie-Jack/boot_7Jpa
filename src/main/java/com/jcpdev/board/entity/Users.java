@@ -18,13 +18,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Builder
-@ToString
+@ToString(callSuper = true)
 @Table(name="users")
 public class Users extends BaseEntity{
 	
 	@Id		//기본키 컬럼
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		//auto increment (sequence)
-	private Long mno;
+	private Long mno;		//long : 기본형 타입, Long : long에 대한 Wrapper클래스
 	
 	@Column(nullable = false, unique = true)		//컬럼명 지정. 변수명과 같으면 생략
 	private String email;							//널 허용, 유니크등 설정

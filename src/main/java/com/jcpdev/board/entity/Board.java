@@ -18,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Getter
 @Builder
-@ToString
+@ToString(callSuper = true)
 @Table(name="board")	//board 테이블과 매핑됩니다. 클래스명과 동일하면 생략가능.
 public class Board extends BaseEntity{
 	//테이블의 컬럼과 매핑되도록 선언합니다.
@@ -32,5 +32,6 @@ public class Board extends BaseEntity{
 	
 	@ManyToOne				// 다대일 : 한 사용자가 여러개 글을 작성할 수 있음.
 	private Users writer;	// 단방향 관계 설정 (Users 에는 관계 설정 안함)
-	
+							// 실제 테이블에서 외래키 설정한 관계
+//	34번 라인에 따라 테이블 컬럼명은 writer_mno
 }
